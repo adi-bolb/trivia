@@ -1,9 +1,18 @@
 package com.adaptionsoft.games.uglytrivia;
 
+import com.adaptionsoft.games.trivia.runner.IConsoleWrapper;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Game {
+
+    private IConsoleWrapper consoleWrapper;
+
+    public Game(IConsoleWrapper consoleWrapper){
+        this.consoleWrapper = consoleWrapper;
+    }
+
     ArrayList players = new ArrayList();
     int[] places = new int[6];
     int[] purses  = new int[6];
@@ -44,14 +53,10 @@ public class Game {
 
         String playerNameWasAdded = playerName + " was added";
         String playerNumberAdded = "They are player number " + players.size();
-        consoleWriteLine(playerNameWasAdded);
-        consoleWriteLine(playerNumberAdded);
-		return true;
+        consoleWrapper.consoleWriteLine(playerNameWasAdded);
+        consoleWrapper.consoleWriteLine(playerNumberAdded);
+        return true;
 	}
-
-    protected void consoleWriteLine(String text) {
-        System.out.println(text);
-    }
 
     public int howManyPlayers() {
 		return players.size();

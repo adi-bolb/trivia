@@ -1,6 +1,10 @@
 package com.adaptionsoft.games.trivia;
 
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
+
+import com.adaptionsoft.games.trivia.runner.ConsoleWrapper;
+import com.adaptionsoft.games.trivia.runner.IConsoleWrapper;
 import org.junit.Test;
 import com.adaptionsoft.games.uglytrivia.Game;
 
@@ -15,7 +19,7 @@ public class SomeTest {
         PrintStream printStream = new PrintStream(stream);
         System.setOut(printStream);
 
-        Game game = new Game();
+        Game game = new Game(new ConsoleWrapper());
         game.add("Some Player");
 
         assertEquals("Some Player was added\n" +
@@ -28,7 +32,7 @@ public class SomeTest {
         PrintStream printStream = new PrintStream(stream);
         System.setOut(printStream);
 
-        Game game = new Game();
+        Game game = new Game(new ConsoleWrapper());
         game.add("Some Player");
         game.add("Some other Player");
 
@@ -41,10 +45,12 @@ public class SomeTest {
     @Test
     public void testWhenAddingPlayerItsNameAndNumberAreWrittenWithExtractAndOverride(){
 
-        GameForTests game = new GameForTests();
+        IConsoleWrapper consoleWrapperMock = mock(IConsoleWrapper.class);
+        GameForTests game = new GameForTests(consoleWrapperMock);
         game.add("Some Player");
 
-        assertEquals("Some Player was addedThey are player number 1", game.textWritten);
+        verify(consoleWrapperMock).consoleWriteLine("Some Player was added");
+        verify(consoleWrapperMock).consoleWriteLine("They are player number 1");
     }
 
 }

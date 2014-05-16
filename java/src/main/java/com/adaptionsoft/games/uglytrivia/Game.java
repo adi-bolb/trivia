@@ -49,8 +49,8 @@ public class Game {
 		return true;
 	}
 
-    private void consoleWriteLine(String playerNameWasAdded) {
-        System.out.println(playerNameWasAdded);
+    protected void consoleWriteLine(String text) {
+        System.out.println(text);
     }
 
     public int howManyPlayers() {

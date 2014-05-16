@@ -38,4 +38,13 @@ public class SomeTest {
                 "They are player number 2\n", stream.toString());
     }
 
+    @Test
+    public void testWhenAddingPlayerItsNameAndNumberAreWrittenWithExtractAndOverride(){
+
+        GameForTests game = new GameForTests();
+        game.add("Some Player");
+
+        assertEquals("Some Player was addedThey are player number 1", game.textWritten);
+    }
+
 }

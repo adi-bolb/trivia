@@ -22,5 +22,20 @@ public class SomeTest {
                 "They are player number 1\n", stream.toString());
     }
 
+    @Test
+    public void testWhenAddingTwoPlayers(){
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(stream);
+        System.setOut(printStream);
+
+        Game game = new Game();
+        game.add("Some Player");
+        game.add("Some other Player");
+
+        assertEquals("Some Player was added\n" +
+                "They are player number 1\n" +
+                "Some other Player was added\n" +
+                "They are player number 2\n", stream.toString());
+    }
 
 }

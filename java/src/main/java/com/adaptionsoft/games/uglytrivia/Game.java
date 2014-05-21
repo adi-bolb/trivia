@@ -137,7 +137,7 @@ public class Game {
 			
 		} else {
 		
-			System.out.println("Answer was corrent!!!!");
+			System.out.println(getCorrectAnswerMessage());
 			purses[currentPlayer]++;
 			System.out.println(players.get(currentPlayer) 
 					+ " now has "
@@ -151,8 +151,12 @@ public class Game {
 			return winner;
 		}
 	}
-	
-	public boolean wrongAnswer(){
+
+    public String getCorrectAnswerMessage() {
+        return "Answer was corrent!!!!";
+    }
+
+    public boolean wrongAnswer(){
 		System.out.println("Question was incorrectly answered");
 		System.out.println(players.get(currentPlayer)+ " was sent to the penalty box");
 		inPenaltyBox[currentPlayer] = true;

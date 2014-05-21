@@ -25,4 +25,14 @@ public class SomeTest {
         assertEquals("Answer was corrent!!!!\n" +
                 "some player name now has 1 Gold Coins.\n", outputStream.toString());
     }
+
+    @Test
+    public void correctAnswerMessageIsValid(){
+        Game game = new Game();
+        String expected = "Answer was corrent!!!!";
+
+        String actual = game.getCorrectAnswerMessage();
+
+        assertEquals(expected, actual);
+    }
 }

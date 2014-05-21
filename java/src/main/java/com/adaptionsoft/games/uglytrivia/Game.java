@@ -153,7 +153,7 @@ public class Game {
 	}
 
     public String getCorrectAnswerMessage() {
-        return "Answer was corrent!!!!";
+        return "Answer was correct!!!!";
     }
 
     public boolean wrongAnswer(){

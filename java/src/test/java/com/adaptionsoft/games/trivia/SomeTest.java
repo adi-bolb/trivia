@@ -22,14 +22,14 @@ public class SomeTest {
 
         game.wasCorrectlyAnswered();
 
-        assertEquals("Answer was corrent!!!!\n" +
+        assertEquals("Answer was correct!!!!\n" +
                 "some player name now has 1 Gold Coins.\n", outputStream.toString());
     }
 
     @Test
-    public void correctAnswerMessageIsValid(){
+    public void correctAnswerMessageIsValidChangedBecauseOfBug(){
         Game game = new Game();
-        String expected = "Answer was corrent!!!!";
+        String expected = "Answer was correct!!!!";
 
         String actual = game.getCorrectAnswerMessage();
 

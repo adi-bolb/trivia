@@ -3,6 +3,7 @@ package com.adaptionsoft.games.trivia;
 import static org.junit.Assert.*;
 
 import com.adaptionsoft.games.uglytrivia.Game;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
@@ -10,25 +11,29 @@ import java.io.PrintStream;
 
 public class SomeTest {
 
+    private Game game;
+    @Before
+    public void setup(){
+        game = new Game();
+    }
+
 	@Test
     public void gameWasCorrectlyAnsweredWhenNotInPenaltyBoxWriteCorrectAnswerToConsole(){
-
-        Game game = new Game();
+        String expected = "Answer was correct!!!!\n" +
+                "some player name now has 1 Gold Coins.\n";
         game.add("some player name");
-
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         PrintStream printStream = new PrintStream(outputStream);
         System.setOut(printStream);
-
         game.wasCorrectlyAnswered();
 
-        assertEquals("Answer was correct!!!!\n" +
-                "some player name now has 1 Gold Coins.\n", outputStream.toString());
+        String actual = outputStream.toString();
+
+        assertEquals(expected, actual);
     }
 
     @Test
     public void correctAnswerMessageIsValidChangedBecauseOfBug(){
-        Game game = new Game();
         String expected = "Answer was correct!!!!";
 
         String actual = game.getCorrectAnswerMessage();

@@ -17,14 +17,19 @@ public class SomeTest {
         game = new Game();
     }
 
+    private ByteArrayOutputStream getConsoleText() {
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(outputStream);
+        System.setOut(printStream);
+        return outputStream;
+    }
+
 	@Test
     public void gameWasCorrectlyAnsweredWhenNotInPenaltyBoxWriteCorrectAnswerToConsole(){
         String expected = "Answer was correct!!!!\n" +
                 "some player name now has 1 Gold Coins.\n";
         game.add("some player name");
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        PrintStream printStream = new PrintStream(outputStream);
-        System.setOut(printStream);
+        ByteArrayOutputStream outputStream = getConsoleText();
         game.wasCorrectlyAnswered();
 
         String actual = outputStream.toString();

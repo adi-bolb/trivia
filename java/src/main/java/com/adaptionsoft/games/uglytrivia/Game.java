@@ -1,5 +1,7 @@
 package com.adaptionsoft.games.uglytrivia;
 
+import org.omg.CORBA.PUBLIC_MEMBER;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 
@@ -16,7 +18,8 @@ public class Game {
     
     int currentPlayer = 0;
     boolean isGettingOutOfPenaltyBox;
-    
+    private Console console;
+
     public  Game(){
     	for (int i = 0; i < 50; i++) {
 			popQuestions.addLast("Pop Question " + i);
@@ -24,6 +27,12 @@ public class Game {
 			sportsQuestions.addLast(("Sports Question " + i));
 			rockQuestions.addLast(createRockQuestion(i));
     	}
+    }
+
+    public Game(Console console){
+        this();
+
+        this.console = console;
     }
 
 	public String createRockQuestion(int index){
@@ -41,13 +50,20 @@ public class Game {
 	    places[howManyPlayers()] = 0;
 	    purses[howManyPlayers()] = 0;
 	    inPenaltyBox[howManyPlayers()] = false;
-	    
-	    System.out.println(playerName + " was added");
-	    System.out.println("They are player number " + players.size());
+
+        consoleWrite(playerName + " was added");
+        consoleWrite("They are player number " + players.size());
 		return true;
 	}
-	
-	public int howManyPlayers() {
+
+    protected void consoleWrite(String message) {
+        if(console!= null)
+            console.writeLine(message);
+
+        System.out.println(message);
+    }
+
+    public int howManyPlayers() {
 		return players.size();
 	}
 

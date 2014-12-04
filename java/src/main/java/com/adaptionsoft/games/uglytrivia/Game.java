@@ -16,10 +16,10 @@ public class Game {
     
     int currentPlayer = 0;
     boolean isGettingOutOfPenaltyBox;
-    Console console;
+    GameResultWriter gameResultWriter;
 
     public  Game(){
-        console = new ConsoleImpl();
+        gameResultWriter = new GameResultConsoleWriterImpl();
     	for (int i = 0; i < 50; i++) {
 			popQuestions.addLast("Pop Question " + i);
 			scienceQuestions.addLast(("Science Question " + i));
@@ -28,8 +28,8 @@ public class Game {
     	}
     }
 
-    public void setConsole(Console console){
-        this.console = console;
+    public void setGameResultWriter(GameResultWriter gameResultWriter){
+        this.gameResultWriter = gameResultWriter;
     }
 
 	public String createRockQuestion(int index){
@@ -162,7 +162,7 @@ public class Game {
     protected void consoleWriteLine(String playerWinMessage) {
 
 
-        console.writeLine(playerWinMessage);
+        gameResultWriter.writeLine(playerWinMessage);
     }
 
     public boolean wrongAnswer(){

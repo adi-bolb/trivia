@@ -4,8 +4,7 @@ import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
-import com.adaptionsoft.games.uglytrivia.Console;
-import com.adaptionsoft.games.uglytrivia.ConsoleImpl;
+import com.adaptionsoft.games.uglytrivia.GameResultWriter;
 import com.adaptionsoft.games.uglytrivia.Game;
 import org.junit.Before;
 import org.junit.Test;
@@ -83,8 +82,8 @@ public class GameTests {
     @Test
     public void writesWinnerMessageWhenWonSixGoldCoins(){
         Game game = new Game();
-        Console consoleMock = mock(Console.class);
-        game.setConsole(consoleMock);
+        GameResultWriter gameResultWriterMock = mock(GameResultWriter.class);
+        game.setGameResultWriter(gameResultWriterMock);
         game.add("Adi");
         game.wasCorrectlyAnswered();
         game.wasCorrectlyAnswered();
@@ -94,6 +93,6 @@ public class GameTests {
 
         game.wasCorrectlyAnswered();
 
-        verify(consoleMock).writeLine("Adi now has 6 Gold Coins.");
+        verify(gameResultWriterMock).writeLine("Adi now has 6 Gold Coins.");
     }
 }

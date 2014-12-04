@@ -1,7 +1,10 @@
 package com.adaptionsoft.games.trivia;
 
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
+import com.adaptionsoft.games.uglytrivia.Console;
 import com.adaptionsoft.games.uglytrivia.ConsoleImpl;
 import com.adaptionsoft.games.uglytrivia.Game;
 import org.junit.Before;
@@ -79,18 +82,18 @@ public class GameTests {
 
     @Test
     public void writesWinnerMessageWhenWonSixGoldCoins(){
-        GameForTests gameForTests = new GameForTests();
-        gameForTests.setConsole(new ConsoleImpl());
-        gameForTests.add("Adi");
-        gameForTests.wasCorrectlyAnswered();
-        gameForTests.wasCorrectlyAnswered();
-        gameForTests.wasCorrectlyAnswered();
-        gameForTests.wasCorrectlyAnswered();
-        gameForTests.wasCorrectlyAnswered();
+        Game game = new Game();
+        Console consoleMock = mock(Console.class);
+        game.setConsole(consoleMock);
+        game.add("Adi");
+        game.wasCorrectlyAnswered();
+        game.wasCorrectlyAnswered();
+        game.wasCorrectlyAnswered();
+        game.wasCorrectlyAnswered();
+        game.wasCorrectlyAnswered();
 
-        gameForTests.wasCorrectlyAnswered();
+        game.wasCorrectlyAnswered();
 
-        assertEquals("Adi now has 6 Gold Coins.", gameForTests.output);
-
+        verify(consoleMock).writeLine("Adi now has 6 Gold Coins.");
     }
 }

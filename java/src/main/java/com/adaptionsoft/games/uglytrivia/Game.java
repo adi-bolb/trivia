@@ -139,20 +139,25 @@ public class Game {
 		
 			System.out.println("Answer was corrent!!!!");
 			purses[currentPlayer]++;
-			System.out.println(players.get(currentPlayer) 
-					+ " now has "
-					+ purses[currentPlayer]
-					+ " Gold Coins.");
-			
-			boolean winner = didPlayerWin();
+            String playerWinMessage = players.get(currentPlayer)
+                    + " now has "
+                    + purses[currentPlayer]
+                    + " Gold Coins.";
+            consoleWriteLine(playerWinMessage);
+
+            boolean winner = didPlayerWin();
 			currentPlayer++;
 			if (currentPlayer == players.size()) currentPlayer = 0;
 			
 			return winner;
 		}
 	}
-	
-	public boolean wrongAnswer(){
+
+    protected void consoleWriteLine(String playerWinMessage) {
+        System.out.println(playerWinMessage);
+    }
+
+    public boolean wrongAnswer(){
 		System.out.println("Question was incorrectly answered");
 		System.out.println(players.get(currentPlayer)+ " was sent to the penalty box");
 		inPenaltyBox[currentPlayer] = true;

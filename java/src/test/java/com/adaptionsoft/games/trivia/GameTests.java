@@ -75,4 +75,20 @@ public class GameTests {
                 "The category is Science\n" +
                 "Science Question 0\n", stream.toString());
     }
+
+    @Test
+    public void writesWinnerMessageWhenWonSixGoldCoins(){
+        GameForTests gameForTests = new GameForTests();
+        gameForTests.add("Adi");
+        gameForTests.wasCorrectlyAnswered();
+        gameForTests.wasCorrectlyAnswered();
+        gameForTests.wasCorrectlyAnswered();
+        gameForTests.wasCorrectlyAnswered();
+        gameForTests.wasCorrectlyAnswered();
+
+        gameForTests.wasCorrectlyAnswered();
+
+        assertEquals("Adi now has 6 Gold Coins.", gameForTests.output);
+
+    }
 }

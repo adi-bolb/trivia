@@ -154,7 +154,7 @@ public class Game {
 	}
 
     protected void consoleWriteLine(String playerWinMessage) {
-        System.out.println(playerWinMessage);
+        new ConsoleImpl().writeLine(playerWinMessage);
     }
 
     public boolean wrongAnswer(){

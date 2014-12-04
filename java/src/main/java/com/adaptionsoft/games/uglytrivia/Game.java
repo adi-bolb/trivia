@@ -16,7 +16,7 @@ public class Game {
     
     int currentPlayer = 0;
     boolean isGettingOutOfPenaltyBox;
-    ConsoleImpl console;
+    Console console;
 
     public  Game(){
         console = new ConsoleImpl();
@@ -28,7 +28,7 @@ public class Game {
     	}
     }
 
-    public void setConsole(ConsoleImpl console){
+    public void setConsole(Console console){
         this.console = console;
     }
 

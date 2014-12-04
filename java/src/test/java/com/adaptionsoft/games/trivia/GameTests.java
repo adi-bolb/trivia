@@ -2,6 +2,7 @@ package com.adaptionsoft.games.trivia;
 
 import static org.junit.Assert.*;
 
+import com.adaptionsoft.games.uglytrivia.ConsoleImpl;
 import com.adaptionsoft.games.uglytrivia.Game;
 import org.junit.Before;
 import org.junit.Test;
@@ -79,6 +80,7 @@ public class GameTests {
     @Test
     public void writesWinnerMessageWhenWonSixGoldCoins(){
         GameForTests gameForTests = new GameForTests();
+        gameForTests.setConsole(new ConsoleImpl());
         gameForTests.add("Adi");
         gameForTests.wasCorrectlyAnswered();
         gameForTests.wasCorrectlyAnswered();

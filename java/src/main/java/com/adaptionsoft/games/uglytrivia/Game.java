@@ -179,4 +179,8 @@ public class Game {
 	private boolean didPlayerWin() {
 		return !(purses[currentPlayer] == 6);
 	}
+
+    public void ask(QuestionWriterForMockist questionWriter) {
+        questionWriter.ask("valid question");
+    }
 }

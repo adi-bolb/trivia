@@ -6,6 +6,7 @@ import static org.mockito.Mockito.verify;
 
 import com.adaptionsoft.games.uglytrivia.GameResultWriter;
 import com.adaptionsoft.games.uglytrivia.Game;
+import com.adaptionsoft.games.uglytrivia.QuestionWriterForMockist;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -95,4 +96,15 @@ public class GameTests {
 
         verify(gameResultWriterMock).writeLine("Adi now has 6 Gold Coins.");
     }
+
+    @Test
+    public void tellsQuestionWriterToAskQuestion(){
+        QuestionWriterForMockist questionWriter = mock(QuestionWriterForMockist.class);
+
+        game.ask(questionWriter);
+
+        verify(questionWriter).ask("valid question");
+    }
+
+
 }

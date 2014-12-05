@@ -10,15 +10,10 @@ import static junit.framework.TestCase.assertEquals;
 /**
  * Created by adi on 12/4/14.
  */
-public class FileImplTests {
-    @Test
-    public void aValidTextShouldBeAppendedTeExistingText(){
-        FileImpl fileImpl = new FileImpl();
-        fileImpl.write("mytext");
-        fileImpl.write("concatenated");
+public class FileImplTests extends FileContractTests {
 
-        String actual = fileImpl.toString();
-
-        assertEquals("mytextconcatenated", actual);
+    @Override
+    protected File getFile() {
+        return new FileImpl();
     }
 }

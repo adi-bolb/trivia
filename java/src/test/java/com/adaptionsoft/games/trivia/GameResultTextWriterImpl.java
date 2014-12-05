@@ -7,8 +7,14 @@ import com.adaptionsoft.games.uglytrivia.GameResultWriter;
  */
 public class GameResultTextWriterImpl implements GameResultWriter{
     private File file;
+    boolean isCreated = false;
 
     public void writeLine(String text) {
+        if(!isCreated){
+            file.createFile("some file");
+            isCreated = true;
+        }
+
         file.write(text);
     }
 

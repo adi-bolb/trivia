@@ -5,4 +5,5 @@ package com.adaptionsoft.games.trivia;
  */
 public interface File {
     void write(String text);
+    void createFile(String fileName);
 }

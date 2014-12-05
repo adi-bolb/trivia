@@ -1,8 +1,6 @@
 package com.adaptionsoft.games.trivia;
 
-import com.adaptionsoft.games.uglytrivia.GameResultConsoleWriterImpl;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import static junit.framework.TestCase.assertEquals;
@@ -16,8 +14,17 @@ import static org.mockito.Mockito.verify;
  * Created by adi on 12/4/14.
  */
 public class GameResultFileWriterImplTests {
-    GameResultTextWriterImpl textWriter;
+
     File fileMock;
+    private GameResultTextWriterImpl textWriter;
+    public static final String DOESNT_MATTER_TEXT = "DoesntMatter";
+
+    protected GameResultTextWriterImpl getGameResultTextWriter() {
+        GameResultTextWriterImpl textWriter = new GameResultTextWriterImpl();
+        textWriter.setFile(fileMock);
+        return textWriter;
+    }
+
     @Before
     public void before(){
         textWriter = new GameResultTextWriterImpl();
@@ -27,23 +34,26 @@ public class GameResultFileWriterImplTests {
 
     @Test
     public void aValidTextShouldBeWrittenToFile(){
-        textWriter.writeLine("my text");
+        String validTextToBeVerified = "Valid text to be verified";
+        textWriter.writeLine(validTextToBeVerified);
 
-        verify(fileMock).write("my text");
+        verify(fileMock).write(validTextToBeVerified);
     }
 
     @Test
     public void createFileAtFirstTextWriterCall(){
-        textWriter.writeLine("mytext");
+        GameResultTextWriterImpl textWriter = getGameResultTextWriter();
+        textWriter.writeLine(DOESNT_MATTER_TEXT);
 
         verify(fileMock, times(1)).createFile(anyString());
     }
 
     @Test
     public void doesNotCreateFileAtSecondTextWriterCall(){
-        textWriter.writeLine("mytext");
+        GameResultTextWriterImpl textWriter = getGameResultTextWriter();
+        textWriter.writeLine(DOESNT_MATTER_TEXT);
 
-        textWriter.writeLine("mytext");
+        textWriter.writeLine(DOESNT_MATTER_TEXT);
 
         verify(fileMock, times(1)).createFile(anyString());
     }

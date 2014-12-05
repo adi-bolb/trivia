@@ -1,5 +1,6 @@
 package com.adaptionsoft.games.trivia;
 
+import com.adaptionsoft.games.uglytrivia.FileImpl;
 import com.adaptionsoft.games.uglytrivia.GameResultConsoleWriterImpl;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -11,13 +12,12 @@ import static junit.framework.TestCase.assertEquals;
  */
 public class FileImplTests {
     @Test
-    @Ignore
     public void aValidTextShouldBeAppendedTeExistingText(){
-        GameResultConsoleWriterImpl textWriter = new GameResultConsoleWriterImpl();
-        textWriter.writeLine("mytext");
-        textWriter.writeLine("concatenated");
+        FileImpl fileImpl = new FileImpl();
+        fileImpl.write("mytext");
+        fileImpl.write("concatenated");
 
-        String actual = textWriter.toString();
+        String actual = fileImpl.toString();
 
         assertEquals("mytextconcatenated", actual);
     }

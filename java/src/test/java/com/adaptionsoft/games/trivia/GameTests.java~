@@ -94,7 +94,7 @@ public class GameTests {
 
         game.wasCorrectlyAnswered();
 
-        verify(gameResultWriterMock).writeLine("Adi now has 6 Gold Coins.");
+        verify(gameResultWriterMock).writeLine("Adi now has 6 Gold Coins.").Times(1);
     }
 
     @Test

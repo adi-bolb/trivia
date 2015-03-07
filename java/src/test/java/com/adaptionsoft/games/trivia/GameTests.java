@@ -95,4 +95,21 @@ public class GameTests {
                 "The category is Rock\n" +
                 "Rock Question 0\n", stream.toString());
     }
+
+    @Test
+    public void whenInPenaltyBoxAndRollingEvenDiceMessageAbouPlayerAndNotGettingOutOfPenaltyBoxIsWrittenToOutput(){
+        ByteArrayOutputStream stream = getConsoleOutput();
+        game.add("Adi");
+        game.wrongAnswer();
+
+        game.roll(2);
+
+        assertEquals("Adi was added\n" +
+                "They are player number 1\n" +
+                "Question was incorrectly answered\n" +
+                "Adi was sent to the penalty box\n" +
+                "Adi is the current player\n" +
+                "They have rolled a 2\n" +
+                "Adi is not getting out of the penalty box\n", stream.toString());
+    }
 }

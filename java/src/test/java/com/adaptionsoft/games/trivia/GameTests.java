@@ -3,12 +3,18 @@ package com.adaptionsoft.games.trivia;
 import static org.junit.Assert.*;
 
 import com.adaptionsoft.games.uglytrivia.Game;
+import com.adaptionsoft.games.uglytrivia.TextOutput;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.nio.charset.Charset;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.List;
 
 public class GameTests {
 
@@ -182,5 +188,33 @@ public class GameTests {
                 "They are player number 1\n" +
                 "Answer was corrent!!!!\n" +
                 "Adi now has 1 Gold Coins.\n", stream.toString());
+    }
+
+    @Test
+    public void whenCorrectlyAnsweredThenWinningGoldenCoinMessageIsWrittenToTextFile() throws IOException {
+        String fileName = "system-test.txt";
+        Path path = FileSystems.getDefault().getPath(fileName);
+        Files.deleteIfExists(path);
+        game.setGameOutput(new TextOutput(fileName));
+        game.add("Adi");
+
+        game.wasCorrectlyAnswered();
+
+        assertEquals("Adi was added\n" +
+                "They are player number 1\n" +
+                "Answer was corrent!!!!\n" +
+                "Adi now has 1 Gold Coins.\n", readText(fileName));
+    }
+
+    private String readText(String fileName) throws IOException {
+        Path path = FileSystems.getDefault().getPath(fileName);
+        List<String> lines = Files.readAllLines(path, Charset.defaultCharset());
+
+        String text = "";
+        for (String line : lines) {
+            text += line.concat("\n");
+        }
+
+        return text;
     }
 }

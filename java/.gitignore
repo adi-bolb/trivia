@@ -3,3 +3,4 @@ workspace.xml
 profiles_settings.xml
 integrationTest.txt
 integrationTest-twoLines.txt
+system-test.txt

@@ -1,5 +1,6 @@
 package com.adaptionsoft.games.trivia.runner;
 
+import java.io.IOException;
 import java.util.Random;
 import com.adaptionsoft.games.uglytrivia.Game;
 
@@ -8,7 +9,7 @@ public class GameRunner {
 
 	private static boolean notAWinner;
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		Game aGame = new Game();
 		
 		aGame.add("Chet");

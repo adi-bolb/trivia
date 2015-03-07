@@ -7,6 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.PrintStream;
 
 public class GameTests {
@@ -33,7 +34,7 @@ public class GameTests {
     }
 
     @Test
-    public void whenPlayerIsAddedHisNameAndPlayerNumberIsWritten(){
+    public void whenPlayerIsAddedHisNameAndPlayerNumberIsWritten() throws IOException {
         ByteArrayOutputStream stream = getConsoleOutput();
         String playerNameAndNumber = "Adi was added\n" +
                 "They are player number 1\n";
@@ -45,7 +46,7 @@ public class GameTests {
     }
 
     @Test
-    public void whenTwoPlayersAreAddedTheirNameAndPlayerNumbersAreWritten(){
+    public void whenTwoPlayersAreAddedTheirNameAndPlayerNumbersAreWritten() throws IOException {
         ByteArrayOutputStream stream = getConsoleOutput();
         String playerNameAndNumber = "Adi was added\n" +
                 "They are player number 1\n" +
@@ -61,7 +62,7 @@ public class GameTests {
     }
 
     @Test
-    public void whenRollingDiceNumber1MessageAboutDiceAndPlayerLocationAndScienceCategoryIsWrittenToOutput(){
+    public void whenRollingDiceNumber1MessageAboutDiceAndPlayerLocationAndScienceCategoryIsWrittenToOutput() throws IOException {
         ByteArrayOutputStream stream = getConsoleOutput();
         game.add("SomePlayer");
 
@@ -77,7 +78,7 @@ public class GameTests {
     }
 
     @Test
-    public void whenInPenaltyBoxAndRollingOddDiceMessageAboutPlayerAndGettingOutOfPenaltyBoxIsWrittenToOutput(){
+    public void whenInPenaltyBoxAndRollingOddDiceMessageAboutPlayerAndGettingOutOfPenaltyBoxIsWrittenToOutput() throws IOException {
         ByteArrayOutputStream stream = getConsoleOutput();
         game.add("Adi");
         game.wrongAnswer();
@@ -97,7 +98,7 @@ public class GameTests {
     }
 
     @Test
-    public void whenInPenaltyBoxAndRollingEvenDiceMessageAbouPlayerAndNotGettingOutOfPenaltyBoxIsWrittenToOutput(){
+    public void whenInPenaltyBoxAndRollingEvenDiceMessageAbouPlayerAndNotGettingOutOfPenaltyBoxIsWrittenToOutput() throws IOException {
         ByteArrayOutputStream stream = getConsoleOutput();
         game.add("Adi");
         game.wrongAnswer();
@@ -114,7 +115,7 @@ public class GameTests {
     }
 
     @Test
-    public void whenRollingDiceNumber4AMessageAboutDiceAndPlayerLocationAndPopCategoryIsWrittenToOutput(){
+    public void whenRollingDiceNumber4AMessageAboutDiceAndPlayerLocationAndPopCategoryIsWrittenToOutput() throws IOException {
         ByteArrayOutputStream stream = getConsoleOutput();
         game.add("Adi");
 
@@ -131,7 +132,7 @@ public class GameTests {
     }
 
     @Test
-    public void whenRollingDiceNumber2AMessageAboutDiceAndPlayerLocationAndSportCategoryIsWrittenToOutput(){
+    public void whenRollingDiceNumber2AMessageAboutDiceAndPlayerLocationAndSportCategoryIsWrittenToOutput() throws IOException {
         ByteArrayOutputStream stream = getConsoleOutput();
         game.add("Adi");
 
@@ -148,7 +149,7 @@ public class GameTests {
     }
 
     @Test
-    public void whenCorrectlyAnsweredAndInPenaltyBoxAndGettingOutOfPenaltyBoxThenMessageAboutCorrectAnswerAndWinningGoldenCoinsIsWrittenToOutput(){
+    public void whenCorrectlyAnsweredAndInPenaltyBoxAndGettingOutOfPenaltyBoxThenMessageAboutCorrectAnswerAndWinningGoldenCoinsIsWrittenToOutput() throws IOException {
         ByteArrayOutputStream stream = getConsoleOutput();
         game.add("Adi");
         game.wrongAnswer();
@@ -171,7 +172,7 @@ public class GameTests {
     }
 
     @Test
-    public void whenCorrectlyAnsweredThenWinningGoldenCoinsMessageIsWrittenToOutput(){
+    public void whenCorrectlyAnsweredThenWinningGoldenCoinsMessageIsWrittenToOutput() throws IOException {
         ByteArrayOutputStream stream = getConsoleOutput();
         game.add("Adi");
 

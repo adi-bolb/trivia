@@ -129,4 +129,21 @@ public class GameTests {
                 "Pop Question 0\n", stream.toString());
 
     }
+
+    @Test
+    public void whenRollingDiceNumber2AMessageAboutDiceAndPlayerLocationAndSportCategoryIsWrittenToOutput(){
+        ByteArrayOutputStream stream = getConsoleOutput();
+        game.add("Adi");
+
+        game.roll(2);
+
+        assertEquals("Adi was added\n" +
+                "They are player number 1\n" +
+                "Adi is the current player\n" +
+                "They have rolled a 2\n" +
+                "Adi's new location is 2\n" +
+                "The category is Sports\n" +
+                "Sports Question 0\n", stream.toString());
+
+    }
 }

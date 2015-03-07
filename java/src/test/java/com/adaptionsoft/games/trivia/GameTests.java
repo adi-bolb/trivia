@@ -112,4 +112,21 @@ public class GameTests {
                 "They have rolled a 2\n" +
                 "Adi is not getting out of the penalty box\n", stream.toString());
     }
+
+    @Test
+    public void whenRollingDiceNumber4AMessageAboutDiceAndPlayerLocationAndPopCategoryIsWritttenToOutput(){
+        ByteArrayOutputStream stream = getConsoleOutput();
+        game.add("Adi");
+
+        game.roll(4);
+
+        assertEquals("Adi was added\n" +
+                "They are player number 1\n" +
+                "Adi is the current player\n" +
+                "They have rolled a 4\n" +
+                "Adi's new location is 4\n" +
+                "The category is Pop\n" +
+                "Pop Question 0\n", stream.toString());
+
+    }
 }

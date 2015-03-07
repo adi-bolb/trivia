@@ -2,10 +2,7 @@ package com.adaptionsoft.games.uglytrivia;
 
 import java.io.IOException;
 import java.nio.charset.Charset;
-import java.nio.file.FileSystem;
-import java.nio.file.FileSystems;
-import java.nio.file.Files;
-import java.nio.file.Path;
+import java.nio.file.*;
 
 /**
  * Created by adi on 3/7/15.
@@ -20,8 +17,12 @@ public class TextOutput implements GameOutput{
 
     @Override
     public void consoleWriteLine(String message) throws IOException {
-        byte[] messageAsByteArray = message.getBytes();
+        String messageWithNewLine = message + "\n";
+        byte[] messageAsByteArray = messageWithNewLine.getBytes();
         Path path = FileSystems.getDefault().getPath(filename);
-        Files.write(path, messageAsByteArray);
+        if(!Files.exists(path)){
+            Files.write(path, new byte[]{}, StandardOpenOption.CREATE_NEW);
+        }
+        Files.write(path, messageAsByteArray, StandardOpenOption.APPEND);
     }
 }

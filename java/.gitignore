@@ -2,3 +2,4 @@ target/
 workspace.xml
 profiles_settings.xml
 integrationTest.txt
+integrationTest-twoLines.txt

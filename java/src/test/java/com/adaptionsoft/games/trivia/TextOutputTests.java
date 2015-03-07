@@ -26,12 +26,32 @@ public class TextOutputTests {
 
         textOutput.consoleWriteLine("valid message");
 
-        assertEquals("valid message", readText(filename));
+        assertEquals("valid message\n", readText(filename));
+    }
+
+    @Test
+    public void canWriteTwoLinesOfTextToFile() throws IOException {
+        String filename = "integrationTest-twoLines.txt";
+        Path path = FileSystems.getDefault().getPath(filename);
+        Files.deleteIfExists(path);
+        TextOutput textOutput = new TextOutput(filename);
+
+        textOutput.consoleWriteLine("valid message");
+        textOutput.consoleWriteLine("valid message2");
+
+        assertEquals("valid message\nvalid message2\n", readText(filename));
+
     }
 
     private String readText(String filename) throws IOException {
         Path path = FileSystems.getDefault().getPath(filename);
         List<String> lines = Files.readAllLines(path, Charset.defaultCharset());
-        return lines.get(0);
+
+        String text = "";
+        for (String line : lines) {
+            text += line.concat("\n");
+        }
+
+        return text;
     }
 }

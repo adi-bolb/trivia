@@ -61,7 +61,7 @@ public class GameTests {
     }
 
     @Test
-    public void whenRollingDiceMessageAboutDiceAndPlayerLocationAndCategoryIsWrittenToOutput(){
+    public void whenRollingDiceNumber1MessageAboutDiceAndPlayerLocationAndScienceCategoryIsWrittenToOutput(){
         ByteArrayOutputStream stream = getConsoleOutput();
         game.add("SomePlayer");
 
@@ -114,7 +114,7 @@ public class GameTests {
     }
 
     @Test
-    public void whenRollingDiceNumber4AMessageAboutDiceAndPlayerLocationAndPopCategoryIsWritttenToOutput(){
+    public void whenRollingDiceNumber4AMessageAboutDiceAndPlayerLocationAndPopCategoryIsWrittenToOutput(){
         ByteArrayOutputStream stream = getConsoleOutput();
         game.add("Adi");
 

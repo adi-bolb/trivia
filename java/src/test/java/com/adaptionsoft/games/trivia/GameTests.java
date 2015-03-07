@@ -169,4 +169,17 @@ public class GameTests {
                 "Answer was correct!!!!\n" +
                 "Adi now has 1 Gold Coins.\n", stream.toString());
     }
+
+    @Test
+    public void whenCorrectlyAnsweredThenWinningGoldenCoinsMessageIsWrittenToOutput(){
+        ByteArrayOutputStream stream = getConsoleOutput();
+        game.add("Adi");
+
+        game.wasCorrectlyAnswered();
+
+        assertEquals("Adi was added\n" +
+                "They are player number 1\n" +
+                "Answer was corrent!!!!\n" +
+                "Adi now has 1 Gold Coins.\n", stream.toString());
+    }
 }

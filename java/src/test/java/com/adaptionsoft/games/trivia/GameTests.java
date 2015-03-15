@@ -61,7 +61,7 @@ public class GameTests {
     }
 
     @Test
-    public void whenRollingDiceMessageAboutDiceAndPlayerLocationAndCategoryIsWrittenToOutput(){
+    public void whenRollingDiceMessageAboutDiceAndPlayerLocationAndCategoryScienceIsWrittenToOutput(){
         ByteArrayOutputStream stream = getConsoleOutput();
         game.add("SomePlayer");
 
@@ -75,4 +75,21 @@ public class GameTests {
                 "The category is Science\n" +
                 "Science Question 0\n", stream.toString());
     }
+
+    @Test
+    public void whenRollingDiceMessageAboutDiceAndPlayerLocationAndCategoryPopIsWrittenToOutput(){
+        ByteArrayOutputStream stream = getConsoleOutput();
+        game.add("SomePlayer");
+
+        game.roll(4);
+
+        assertEquals("SomePlayer was added\n" +
+                "They are player number 1\n" +
+                "SomePlayer is the current player\n" +
+                "They have rolled a 4\n" +
+                "SomePlayer's new location is 4\n" +
+                "The category is Pop\n" +
+                "Pop Question 0\n", stream.toString());
+    }
+
 }

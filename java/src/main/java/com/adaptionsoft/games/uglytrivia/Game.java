@@ -35,6 +35,12 @@ public class Game {
     	}
     }
 
+    public Game(GameOutput gameOutput) {
+        this();
+
+        this.gameOutput = gameOutput;
+    }
+
 	public String createRockQuestion(int index){
 		return "Rock Question " + index;
 	}

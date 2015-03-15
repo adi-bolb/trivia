@@ -2,6 +2,7 @@ package com.adaptionsoft.games.trivia;
 
 import static org.junit.Assert.*;
 
+import com.adaptionsoft.games.uglytrivia.ConsoleOutput;
 import com.adaptionsoft.games.uglytrivia.Game;
 import com.adaptionsoft.games.uglytrivia.TextOutput;
 import org.junit.Before;
@@ -18,10 +19,10 @@ import java.util.List;
 
 public class GameTests {
 
-    private Game game;
+    private Game gameWithConsoleOutput;
     @Before
     public void setup(){
-        game = new Game();
+        gameWithConsoleOutput = new Game(new ConsoleOutput());
     }
 
     private ByteArrayOutputStream getConsoleOutput() {
@@ -46,7 +47,7 @@ public class GameTests {
                 "They are player number 1\n";
         String playerName = "Adi";
 
-        game.add(playerName);
+        gameWithConsoleOutput.add(playerName);
 
         assertEquals(playerNameAndNumber, stream.toString());
     }
@@ -61,8 +62,8 @@ public class GameTests {
         String playerName = "Adi";
         String secondPlayerName = "Alex";
 
-        game.add(playerName);
-        game.add(secondPlayerName);
+        gameWithConsoleOutput.add(playerName);
+        gameWithConsoleOutput.add(secondPlayerName);
 
         assertEquals(playerNameAndNumber, stream.toString());
     }
@@ -70,9 +71,9 @@ public class GameTests {
     @Test
     public void whenRollingDiceNumber1MessageAboutDiceAndPlayerLocationAndScienceCategoryIsWrittenToOutput() throws IOException {
         ByteArrayOutputStream stream = getConsoleOutput();
-        game.add("SomePlayer");
+        gameWithConsoleOutput.add("SomePlayer");
 
-        game.roll(1);
+        gameWithConsoleOutput.roll(1);
 
         assertEquals("SomePlayer was added\n" +
                 "They are player number 1\n" +
@@ -86,10 +87,10 @@ public class GameTests {
     @Test
     public void whenInPenaltyBoxAndRollingOddDiceMessageAboutPlayerAndGettingOutOfPenaltyBoxIsWrittenToOutput() throws IOException {
         ByteArrayOutputStream stream = getConsoleOutput();
-        game.add("Adi");
-        game.wrongAnswer();
+        gameWithConsoleOutput.add("Adi");
+        gameWithConsoleOutput.wrongAnswer();
 
-        game.roll(3);
+        gameWithConsoleOutput.roll(3);
 
         assertEquals("Adi was added\n" +
                 "They are player number 1\n" +
@@ -106,10 +107,10 @@ public class GameTests {
     @Test
     public void whenInPenaltyBoxAndRollingEvenDiceMessageAbouPlayerAndNotGettingOutOfPenaltyBoxIsWrittenToOutput() throws IOException {
         ByteArrayOutputStream stream = getConsoleOutput();
-        game.add("Adi");
-        game.wrongAnswer();
+        gameWithConsoleOutput.add("Adi");
+        gameWithConsoleOutput.wrongAnswer();
 
-        game.roll(2);
+        gameWithConsoleOutput.roll(2);
 
         assertEquals("Adi was added\n" +
                 "They are player number 1\n" +
@@ -123,9 +124,9 @@ public class GameTests {
     @Test
     public void whenRollingDiceNumber4AMessageAboutDiceAndPlayerLocationAndPopCategoryIsWrittenToOutput() throws IOException {
         ByteArrayOutputStream stream = getConsoleOutput();
-        game.add("Adi");
+        gameWithConsoleOutput.add("Adi");
 
-        game.roll(4);
+        gameWithConsoleOutput.roll(4);
 
         assertEquals("Adi was added\n" +
                 "They are player number 1\n" +
@@ -140,9 +141,9 @@ public class GameTests {
     @Test
     public void whenRollingDiceNumber2AMessageAboutDiceAndPlayerLocationAndSportCategoryIsWrittenToOutput() throws IOException {
         ByteArrayOutputStream stream = getConsoleOutput();
-        game.add("Adi");
+        gameWithConsoleOutput.add("Adi");
 
-        game.roll(2);
+        gameWithConsoleOutput.roll(2);
 
         assertEquals("Adi was added\n" +
                 "They are player number 1\n" +
@@ -157,11 +158,11 @@ public class GameTests {
     @Test
     public void whenCorrectlyAnsweredAndInPenaltyBoxAndGettingOutOfPenaltyBoxThenMessageAboutCorrectAnswerAndWinningGoldenCoinsIsWrittenToOutput() throws IOException {
         ByteArrayOutputStream stream = getConsoleOutput();
-        game.add("Adi");
-        game.wrongAnswer();
-        game.roll(3);
+        gameWithConsoleOutput.add("Adi");
+        gameWithConsoleOutput.wrongAnswer();
+        gameWithConsoleOutput.roll(3);
 
-        game.wasCorrectlyAnswered();
+        gameWithConsoleOutput.wasCorrectlyAnswered();
 
         assertEquals("Adi was added\n" +
                 "They are player number 1\n" +
@@ -180,9 +181,9 @@ public class GameTests {
     @Test
     public void whenCorrectlyAnsweredThenWinningGoldenCoinsMessageIsWrittenToOutput() throws IOException {
         ByteArrayOutputStream stream = getConsoleOutput();
-        game.add("Adi");
+        gameWithConsoleOutput.add("Adi");
 
-        game.wasCorrectlyAnswered();
+        gameWithConsoleOutput.wasCorrectlyAnswered();
 
         assertEquals("Adi was added\n" +
                 "They are player number 1\n" +
@@ -195,10 +196,10 @@ public class GameTests {
         String fileName = "system-test.txt";
         Path path = FileSystems.getDefault().getPath(fileName);
         Files.deleteIfExists(path);
-        game.setGameOutput(new TextOutput(fileName));
-        game.add("Adi");
+        gameWithConsoleOutput.setGameOutput(new TextOutput(fileName));
+        gameWithConsoleOutput.add("Adi");
 
-        game.wasCorrectlyAnswered();
+        gameWithConsoleOutput.wasCorrectlyAnswered();
 
         assertEquals("Adi was added\n" +
                 "They are player number 1\n" +

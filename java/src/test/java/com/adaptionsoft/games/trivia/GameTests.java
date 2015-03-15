@@ -20,9 +20,12 @@ import java.util.List;
 public class GameTests {
 
     private Game gameWithConsoleOutput;
+    private Game gameWithTextOutput;
+    private String fileName = "system-test.txt";
     @Before
     public void setup(){
         gameWithConsoleOutput = new Game(new ConsoleOutput());
+        gameWithTextOutput = new Game(new TextOutput(fileName));
     }
 
     private ByteArrayOutputStream getConsoleOutput() {
@@ -193,13 +196,11 @@ public class GameTests {
 
     @Test
     public void whenCorrectlyAnsweredThenWinningGoldenCoinMessageIsWrittenToTextFile() throws IOException {
-        String fileName = "system-test.txt";
         Path path = FileSystems.getDefault().getPath(fileName);
         Files.deleteIfExists(path);
-        gameWithConsoleOutput.setGameOutput(new TextOutput(fileName));
-        gameWithConsoleOutput.add("Adi");
+        gameWithTextOutput.add("Adi");
 
-        gameWithConsoleOutput.wasCorrectlyAnswered();
+        gameWithTextOutput.wasCorrectlyAnswered();
 
         assertEquals("Adi was added\n" +
                 "They are player number 1\n" +

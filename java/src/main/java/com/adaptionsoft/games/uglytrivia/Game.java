@@ -88,8 +88,7 @@ public class Game {
 	}
 
 	private void askQuestion() {
-		if (currentCategory() == "Pop")
-			System.out.println(popQuestions.removeFirst());
+		askPopQuestion();
 		if (currentCategory() == "Science")
 			System.out.println(scienceQuestions.removeFirst());
 		if (currentCategory() == "Sports")
@@ -97,6 +96,11 @@ public class Game {
 		if (currentCategory() == "Rock")
 			System.out.println(rockQuestions.removeFirst());		
 	}
+
+    public void askPopQuestion(){
+        if (currentCategory() == "Pop")
+            System.out.println(popQuestions.removeFirst());
+    }
 	
 	
 	private String currentCategory() {

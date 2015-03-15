@@ -92,4 +92,13 @@ public class GameTests {
                 "Pop Question 0\n", stream.toString());
     }
 
+    @Test
+    public void whenAskedPopQuestionMessageIsWrittenToTheOutput(){
+        ByteArrayOutputStream stream = getConsoleOutput();
+
+        game.askPopQuestion();
+
+        assertEquals("Pop Question 0\n", stream.toString());
+    }
+
 }

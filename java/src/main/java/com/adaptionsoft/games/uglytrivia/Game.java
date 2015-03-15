@@ -5,11 +5,6 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Game {
-
-    public void setGameOutput(GameOutput gameOutput) {
-        this.gameOutput = gameOutput;
-    }
-
     private GameOutput gameOutput;
 
     ArrayList players = new ArrayList();

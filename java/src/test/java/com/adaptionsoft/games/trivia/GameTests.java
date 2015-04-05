@@ -75,4 +75,11 @@ public class GameTests {
                 "The category is Science\n" +
                 "Science Question 0\n", stream.toString());
     }
+
+    @Test
+    public void playerWasAddedMessageIsComposedCorrectly(){
+        String actual = Game.createPlayerWasAddedMessage("Adi");
+
+        assertEquals("Adi was added", actual);
+    }
 }

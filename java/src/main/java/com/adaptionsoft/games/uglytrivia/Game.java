@@ -48,7 +48,11 @@ public class Game {
 	}
 
     private static void writePlayerNumberAdded(int playerNumber) {
-        System.out.println("They are player number " + playerNumber);
+        System.out.println(createPlayerNumberMessage(playerNumber));
+    }
+
+    public static String createPlayerNumberMessage(int playerNumber) {
+        return "They are player number " + playerNumber;
     }
 
     private static void writePlayerWasAdded(String playerName) {

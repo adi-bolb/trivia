@@ -82,4 +82,11 @@ public class GameTests {
 
         assertEquals("Adi was added", actual);
     }
+
+    @Test
+    public void playerNumberMessageComposedCorrectly(){
+        String actual = Game.createPlayerNumberMessage(3);
+
+        assertEquals("They are player number 3", actual);
+    }
 }

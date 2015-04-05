@@ -43,12 +43,12 @@ public class Game {
 	    inPenaltyBox[howManyPlayers()] = false;
 
         writePlayerWasAdded(playerName);
-        writePlayerNumberAdded();
+        writePlayerNumberAdded(players.size());
         return true;
 	}
 
-    private void writePlayerNumberAdded() {
-        System.out.println("They are player number " + players.size());
+    private static void writePlayerNumberAdded(int playerNumber) {
+        System.out.println("They are player number " + playerNumber);
     }
 
     private static void writePlayerWasAdded(String playerName) {

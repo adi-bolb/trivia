@@ -169,7 +169,7 @@ public class Game {
 	}
 	
 	public boolean wrongAnswer(){
-		System.out.println("Question was incorrectly answered");
+		System.out.println(createPlayerAnsweredIncorrectlyMessage());
 		System.out.println(players.get(currentPlayer)+ " was sent to the penalty box");
 		inPenaltyBox[currentPlayer] = true;
 		
@@ -178,8 +178,12 @@ public class Game {
 		return true;
 	}
 
+    private static String createPlayerAnsweredIncorrectlyMessage() {
+        return "Question was incorrectly answered";
+    }
 
-	private boolean didPlayerWin() {
+
+    private boolean didPlayerWin() {
 		return !(purses[currentPlayer] == 6);
 	}
 }

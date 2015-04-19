@@ -1,3 +1,5 @@
 target/
 workspace.xml
 profiles_settings.xml
+.idea/uiDesigner.xml
+

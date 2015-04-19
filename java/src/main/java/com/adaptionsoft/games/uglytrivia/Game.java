@@ -104,14 +104,22 @@ public class Game {
 	}
 
 	private void askQuestion() {
-		if (currentCategory() == "Pop")
-			System.out.println(popQuestions.removeFirst());
-		if (currentCategory() == "Science")
-			System.out.println(scienceQuestions.removeFirst());
-		if (currentCategory() == "Sports")
-			System.out.println(sportsQuestions.removeFirst());
-		if (currentCategory() == "Rock")
-			System.out.println(rockQuestions.removeFirst());		
+		if (currentCategory() == "Pop") {
+            Object message = popQuestions.removeFirst();
+            System.out.println(message);
+        }
+		if (currentCategory() == "Science") {
+            Object message = scienceQuestions.removeFirst();
+            System.out.println(message);
+        }
+		if (currentCategory() == "Sports") {
+            Object message = sportsQuestions.removeFirst();
+            System.out.println(message);
+        }
+		if (currentCategory() == "Rock") {
+            Object message = rockQuestions.removeFirst();
+            System.out.println(message);
+        }
 	}
 	
 	

@@ -77,6 +77,54 @@ public class GameTests {
     }
 
     @Test
+    public void whenRollingDiceTwoMessageAboutDiceAndPlayerLocationAndCategoryIsWrittenToOutput(){
+        ByteArrayOutputStream stream = getConsoleOutput();
+        game.add("SomePlayer");
+
+        game.roll(2);
+
+        assertEquals("SomePlayer was added\n" +
+                "They are player number 1\n" +
+                "SomePlayer is the current player\n" +
+                "They have rolled a 2\n" +
+                "SomePlayer's new location is 2\n" +
+                "The category is Sports\n" +
+                "Sports Question 0\n", stream.toString());
+    }
+
+    @Test
+    public void whenRollingDiceFourMessageAboutDiceAndPlayerLocationAndCategoryIsWrittenToOutput(){
+        ByteArrayOutputStream stream = getConsoleOutput();
+        game.add("SomePlayer");
+
+        game.roll(4);
+
+        assertEquals("SomePlayer was added\n" +
+                "They are player number 1\n" +
+                "SomePlayer is the current player\n" +
+                "They have rolled a 4\n" +
+                "SomePlayer's new location is 4\n" +
+                "The category is Pop\n" +
+                "Pop Question 0\n", stream.toString());
+    }
+
+    @Test
+    public void whenRollingDiceThreeMessageAboutDiceAndPlayerLocationAndCategoryIsWrittenToOutput(){
+        ByteArrayOutputStream stream = getConsoleOutput();
+        game.add("SomePlayer");
+
+        game.roll(3);
+
+        assertEquals("SomePlayer was added\n" +
+                "They are player number 1\n" +
+                "SomePlayer is the current player\n" +
+                "They have rolled a 3\n" +
+                "SomePlayer's new location is 3\n" +
+                "The category is Rock\n" +
+                "Rock Question 0\n", stream.toString());
+    }
+
+    @Test
     public void playerWasAddedMessageIsComposedCorrectly(){
         String actual = Game.createPlayerWasAddedMessage("Adi");
 

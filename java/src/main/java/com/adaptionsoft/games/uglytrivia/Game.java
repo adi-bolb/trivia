@@ -104,26 +104,17 @@ public class Game {
 	}
 
 	private void askQuestion() {
-		if (currentCategory() == "Pop") {
-            Object message = popQuestions.removeFirst();
-            System.out.println(message);
-        }
-		if (currentCategory() == "Science") {
-            Object message = scienceQuestions.removeFirst();
-            System.out.println(message);
-        }
-		if (currentCategory() == "Sports") {
-            Object message = sportsQuestions.removeFirst();
-            System.out.println(message);
-        }
-		if (currentCategory() == "Rock") {
-            Object message = rockQuestions.removeFirst();
-            System.out.println(message);
-        }
+		if (currentCategory() == "Pop") consoleWriteLine(popQuestions.removeFirst());
+		if (currentCategory() == "Science") consoleWriteLine(scienceQuestions.removeFirst());
+		if (currentCategory() == "Sports") consoleWriteLine(sportsQuestions.removeFirst());
+		if (currentCategory() == "Rock") consoleWriteLine(rockQuestions.removeFirst());
 	}
-	
-	
-	private String currentCategory() {
+
+    private void consoleWriteLine(Object message) {
+        System.out.println(message);
+    }
+
+    private String currentCategory() {
 		if (places[currentPlayer] == 0) return "Pop";
 		if (places[currentPlayer] == 4) return "Pop";
 		if (places[currentPlayer] == 8) return "Pop";

@@ -51,12 +51,12 @@ public class Game {
         System.out.println(createPlayerNumberMessage(playerNumber));
     }
 
-    public static String createPlayerNumberMessage(int playerNumber) {
-        return "They are player number " + playerNumber;
-    }
-
     private static void writePlayerWasAdded(String playerName) {
         System.out.println(createPlayerWasAddedMessage(playerName));
+    }
+
+    public static String createPlayerNumberMessage(int playerNumber) {
+        return "They are player number " + playerNumber;
     }
 
     public static String createPlayerWasAddedMessage(String playerName) {

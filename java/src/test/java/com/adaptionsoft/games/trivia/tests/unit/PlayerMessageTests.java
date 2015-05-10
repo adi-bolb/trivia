@@ -42,4 +42,16 @@ public class PlayerMessageTests {
 
         assertEquals(expected, actual);
     }
+
+    @Test
+    @PossibleBug
+    public void returnValidPlayerMessageWhenTheirNumberIsZero(){
+        int validPlayerNumber = 0;
+        PlayerMessage playerMessage = new PlayerMessage();
+        String expected = "They are player number 0";
+
+        String actual = playerMessage.playerMessageCreateWithNumber(validPlayerNumber);
+
+        assertEquals(expected, actual);
+    }
 }

@@ -30,4 +30,16 @@ public class PlayerMessageTests {
 
         assertEquals(expected, actual);
     }
+
+    @Test
+    @PossibleBug
+    public void returnValidPlayerMessageWhenTheirNumberIsNegative(){
+        int validPlayerNumber = -1;
+        PlayerMessage playerMessage = new PlayerMessage();
+        String expected = "They are player number -1";
+
+        String actual = playerMessage.playerMessageCreateWithNumber(validPlayerNumber);
+
+        assertEquals(expected, actual);
+    }
 }

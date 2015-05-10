@@ -16,8 +16,10 @@ public class Game {
     
     int currentPlayer = 0;
     boolean isGettingOutOfPenaltyBox;
+    public PlayerMessage playerMessage;
     
     public  Game(){
+        playerMessage = new PlayerMessage();
     	for (int i = 0; i < 50; i++) {
 			popQuestions.addLast("Pop Question " + i);
 			scienceQuestions.addLast(("Science Question " + i));
@@ -47,24 +49,12 @@ public class Game {
         return true;
 	}
 
-    private static void writePlayerNumberAdded(int playerNumber) {
-        System.out.println(playerMessageCreateWithNumber(playerNumber));
+    private void writePlayerNumberAdded(int playerNumber) {
+        System.out.println(playerMessage.playerMessageCreateWithNumber(playerNumber));
     }
 
-    private static void writePlayerWasAdded(String playerName) {
-        System.out.println(playerMessageCreateWhenPlayerAdded(playerName));
-    }
-
-    public static String playerMessageCreateWhenAnsweredIncorrectly() {
-        return "Question was incorrectly answered";
-    }
-
-    public static String playerMessageCreateWithNumber(int playerNumber) {
-        return "They are player number " + playerNumber;
-    }
-
-    public static String playerMessageCreateWhenPlayerAdded(String playerName) {
-        return playerName + " was added";
+    private void writePlayerWasAdded(String playerName) {
+        System.out.println(playerMessage.playerMessageCreateWhenPlayerAdded(playerName));
     }
 
     public int howManyPlayers() {
@@ -173,7 +163,7 @@ public class Game {
 	}
 
 	public boolean wrongAnswer(){
-		System.out.println(playerMessageCreateWhenAnsweredIncorrectly());
+		System.out.println(playerMessage.playerMessageCreateWhenAnsweredIncorrectly());
 		System.out.println(players.get(currentPlayer)+ " was sent to the penalty box");
 		inPenaltyBox[currentPlayer] = true;
 

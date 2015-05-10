@@ -3,6 +3,7 @@ package com.adaptionsoft.games.trivia;
 import static org.junit.Assert.*;
 
 import com.adaptionsoft.games.uglytrivia.Game;
+import com.adaptionsoft.games.uglytrivia.PlayerMessage;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -78,14 +79,14 @@ public class GameTests {
 
     @Test
     public void playerWasAddedMessageIsComposedCorrectly(){
-        String actual = Game.playerMessageCreateWhenPlayerAdded("Adi");
+        String actual = new PlayerMessage().playerMessageCreateWhenPlayerAdded("Adi");
 
         assertEquals("Adi was added", actual);
     }
 
     @Test
     public void playerNumberMessageComposedCorrectly(){
-        String actual = Game.playerMessageCreateWithNumber(3);
+        String actual = new PlayerMessage().playerMessageCreateWithNumber(3);
 
         assertEquals("They are player number 3", actual);
     }

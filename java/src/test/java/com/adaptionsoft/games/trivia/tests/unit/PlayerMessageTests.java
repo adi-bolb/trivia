@@ -19,4 +19,15 @@ public class PlayerMessageTests {
 
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void returnValidPlayerMessageWhenTheyRegisteredWithValidPlayerNumber(){
+        int validPlayerNumber = 2;
+        PlayerMessage playerMessage = new PlayerMessage();
+        String expected = "They are player number 2";
+
+        String actual = playerMessage.playerMessageCreateWithNumber(validPlayerNumber);
+
+        assertEquals(expected, actual);
+    }
 }

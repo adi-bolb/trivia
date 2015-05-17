@@ -66,4 +66,16 @@ public class PlayerMessageTests {
 
         assertEquals(expected, actual);
     }
+
+    @Test
+    @PossibleBug
+    public void returnsPlayerMessageCreateWhenPlayerAddedWithEmptyPlayerName(){
+        String expected = " was added";
+        PlayerMessage playerMessage = new PlayerMessage();
+        String emptyPlayerName = "";
+
+        String actual = playerMessage.playerMessageCreateWhenPlayerAdded(emptyPlayerName);
+
+        assertEquals(expected, actual);
+    }
 }

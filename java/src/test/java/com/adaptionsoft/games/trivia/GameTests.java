@@ -79,14 +79,14 @@ public class GameTests {
 
     @Test
     public void playerWasAddedMessageIsComposedCorrectly(){
-        String actual = new PlayerMessage().playerMessageCreateWhenPlayerAdded("Adi");
+        String actual = new PlayerMessage().createWhenPlayerAdded("Adi");
 
         assertEquals("Adi was added", actual);
     }
 
     @Test
     public void playerNumberMessageComposedCorrectly(){
-        String actual = new PlayerMessage().playerMessageCreateWithNumber(3);
+        String actual = new PlayerMessage().createWithNumber(3);
 
         assertEquals("They are player number 3", actual);
     }

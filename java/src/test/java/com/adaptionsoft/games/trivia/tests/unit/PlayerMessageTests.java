@@ -11,58 +11,58 @@ import static junit.framework.Assert.assertEquals;
 public class PlayerMessageTests {
 
     @Test
-    public void alwaysReturnPlayerMessageWhenAnsweredIncorrectly(){
+    public void alwaysReturnMessageWhenAnsweredIncorrectly(){
         PlayerMessage playerMessage = new PlayerMessage();
         String expected = "Question was incorrectly answered";
 
-        String actual = playerMessage.playerMessageCreateWhenAnsweredIncorrectly();
+        String actual = playerMessage.createWhenAnsweredIncorrectly();
 
         assertEquals(expected, actual);
     }
 
     @Test
-    public void returnValidPlayerMessageWhenTheyRegisteredWithValidPlayerNumber(){
+    public void returnValidMessageWhenTheyRegisteredWithValidPlayerNumber(){
         int validPlayerNumber = 2;
         PlayerMessage playerMessage = new PlayerMessage();
         String expected = "They are player number 2";
 
-        String actual = playerMessage.playerMessageCreateWithNumber(validPlayerNumber);
+        String actual = playerMessage.createWithNumber(validPlayerNumber);
 
         assertEquals(expected, actual);
     }
 
     @Test
     @PossibleBug
-    public void returnValidPlayerMessageWhenTheirNumberIsNegative(){
+    public void returnValidMessageWhenTheirNumberIsNegative(){
         int validPlayerNumber = -1;
         PlayerMessage playerMessage = new PlayerMessage();
         String expected = "They are player number -1";
 
-        String actual = playerMessage.playerMessageCreateWithNumber(validPlayerNumber);
+        String actual = playerMessage.createWithNumber(validPlayerNumber);
 
         assertEquals(expected, actual);
     }
 
     @Test
     @PossibleBug
-    public void returnValidPlayerMessageWhenTheirNumberIsZero(){
+    public void returnValidMessageWhenTheirNumberIsZero(){
         int validPlayerNumber = 0;
         PlayerMessage playerMessage = new PlayerMessage();
         String expected = "They are player number 0";
 
-        String actual = playerMessage.playerMessageCreateWithNumber(validPlayerNumber);
+        String actual = playerMessage.createWithNumber(validPlayerNumber);
 
         assertEquals(expected, actual);
     }
 
     @Test
     @PossibleBug
-    public void returnValidPlayerMessageWhenTheirNumberIsVeryBig(){
+    public void returnValidMessageWhenTheirNumberIsVeryBig(){
         int validPlayerNumber = 1000;
         PlayerMessage playerMessage = new PlayerMessage();
         String expected = "They are player number 1000";
 
-        String actual = playerMessage.playerMessageCreateWithNumber(validPlayerNumber);
+        String actual = playerMessage.createWithNumber(validPlayerNumber);
 
         assertEquals(expected, actual);
     }

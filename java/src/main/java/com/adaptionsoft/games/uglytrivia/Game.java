@@ -50,11 +50,11 @@ public class Game {
 	}
 
     private void writePlayerNumberAdded(int playerNumber) {
-        System.out.println(playerMessage.playerMessageCreateWithNumber(playerNumber));
+        System.out.println(playerMessage.createWithNumber(playerNumber));
     }
 
     private void writePlayerWasAdded(String playerName) {
-        System.out.println(playerMessage.playerMessageCreateWhenPlayerAdded(playerName));
+        System.out.println(playerMessage.createWhenPlayerAdded(playerName));
     }
 
     public int howManyPlayers() {
@@ -163,7 +163,7 @@ public class Game {
 	}
 
 	public boolean wrongAnswer(){
-		System.out.println(playerMessage.playerMessageCreateWhenAnsweredIncorrectly());
+		System.out.println(playerMessage.createWhenAnsweredIncorrectly());
 		System.out.println(players.get(currentPlayer)+ " was sent to the penalty box");
 		inPenaltyBox[currentPlayer] = true;
 

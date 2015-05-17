@@ -78,4 +78,15 @@ public class PlayerMessageTests {
 
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void POSSIBLE_BUG_returnsPlayerMessageCreateWhenPlayerAddedWithOnlyNumericalPlayerName(){
+        String expected = "1 was added";
+        PlayerMessage playerMessage = new PlayerMessage();
+        String onlyNumericalPlayerName = "1";
+
+        String actual = playerMessage.playerMessageCreateWhenPlayerAdded(onlyNumericalPlayerName);
+
+        assertEquals(expected, actual);
+    }
 }

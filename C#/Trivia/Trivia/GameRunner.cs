@@ -42,6 +42,23 @@ namespace Trivia
 
         }
 
+        public static void Run(Game game, Random random)
+        {
+            do
+            {
+                game.roll(random.Next(5) + 1);
+
+                if (random.Next(9) == 7)
+                {
+                    notAWinner = game.wrongAnswer();
+                }
+                else
+                {
+                    notAWinner = game.wasCorrectlyAnswered();
+                }
+            } while (notAWinner);
+        }
+
 
     }
 

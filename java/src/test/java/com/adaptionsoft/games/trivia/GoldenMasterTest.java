@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import java.util.Random;
 
-public class SomeTest {
+public class GoldenMasterTest {
 
 	private ConsoleReader consoleReader;
 
@@ -18,7 +18,7 @@ public class SomeTest {
 	}
 
 	@Test
-	public void true_is_true() throws Exception {
+	public void the_output_matches_the_golden_master() throws Exception {
 		consoleReader.startReadingFromConsole();
 		String expectedRecordedMessage = GoldenMaster.readNext();
 		boolean notAWinner;

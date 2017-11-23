@@ -79,7 +79,7 @@ public class Game {
     }
 
     private void playFromPenaltyBox(final int roll) {
-        if (isEvenRoll(roll)) {
+        if (new Roll(roll).isOdd()) {
             getOutOfPenaltyBox(roll);
         } else {
             stayInPenaltyBox();
@@ -96,10 +96,6 @@ public class Game {
 
         print(players.get(currentPlayer) + " is getting out of the penalty box");
         playNormalTurn(roll);
-    }
-
-    private boolean isEvenRoll(final int roll) {
-        return roll % 2 != 0;
     }
 
     private void askQuestion() {
@@ -163,7 +159,11 @@ public class Game {
     }
 
     private void wrapAroundBoard() {
-        if (currentPlayer == players.size()) currentPlayer = 0;
+        if (isLastPlayerInRound()) currentPlayer = 0;
+    }
+
+    private boolean isLastPlayerInRound() {
+        return currentPlayer == players.size();
     }
 
     public boolean wrongAnswer() {

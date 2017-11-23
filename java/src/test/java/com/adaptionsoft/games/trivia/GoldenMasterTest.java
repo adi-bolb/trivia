@@ -3,6 +3,7 @@ package com.adaptionsoft.games.trivia;
 import static org.junit.Assert.*;
 
 import com.adaptionsoft.games.uglytrivia.Game;
+import com.adaptionsoft.games.uglytrivia.Roll;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -33,7 +34,7 @@ public class GoldenMasterTest {
 
 		do {
 
-			aGame.roll(rand.nextInt());
+			aGame.roll(Roll.fromInteger(rand.nextInt()));
 
 			if (rand.nextInt(9) == 7) {
 				notAWinner = aGame.wrongAnswer();

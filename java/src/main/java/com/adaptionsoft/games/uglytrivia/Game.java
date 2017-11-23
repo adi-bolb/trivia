@@ -51,7 +51,7 @@ public class Game {
         return players.size();
     }
 
-    public void roll(int roll) {
+    public void roll(Roll roll) {
         print(players.get(currentPlayer) + " is the current player");
         print("They have rolled a " + roll);
 
@@ -67,8 +67,8 @@ public class Game {
         return inPenaltyBox[currentPlayer];
     }
 
-    private void playNormalTurn(final int roll) {
-        places[currentPlayer] = places[currentPlayer] + roll;
+    private void playNormalTurn(final Roll roll) {
+        places[currentPlayer] = places[currentPlayer] + roll.value;
         if (places[currentPlayer] > 11) places[currentPlayer] = places[currentPlayer] - 12;
 
         print(players.get(currentPlayer)
@@ -78,8 +78,8 @@ public class Game {
         askQuestion();
     }
 
-    private void playFromPenaltyBox(final int roll) {
-        if (new Roll(roll).isOdd()) {
+    private void playFromPenaltyBox(final Roll roll) {
+        if (roll.isOdd()) {
             getOutOfPenaltyBox(roll);
         } else {
             stayInPenaltyBox();
@@ -91,7 +91,7 @@ public class Game {
         isGettingOutOfPenaltyBox = false;
     }
 
-    private void getOutOfPenaltyBox(final int roll) {
+    private void getOutOfPenaltyBox(final Roll roll) {
         isGettingOutOfPenaltyBox = true;
 
         print(players.get(currentPlayer) + " is getting out of the penalty box");

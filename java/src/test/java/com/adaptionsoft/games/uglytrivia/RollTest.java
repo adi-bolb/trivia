@@ -6,15 +6,14 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class RollTest {
-    Roll roll;
-    @Before
-    public void before() throws Exception {
-        roll = new Roll(3);
+    @Test
+    public void threeIsOddRoll(){
+        assertTrue( Roll.fromInteger(3).isOdd());
     }
 
     @Test
-    public void threeIsEvenRoll(){
-        assertTrue(roll.isOdd());
+    public void fourIsEvenRoll(){
+        assertFalse( Roll.fromInteger(4).isOdd());
     }
 
 }

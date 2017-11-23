@@ -7,6 +7,10 @@ public class Roll {
         this.number = number;
     }
 
+    public static Roll fromInteger(int number){
+        return new Roll(number);
+    }
+
     public boolean isOdd() {
         return number % 2 != 0;
     }

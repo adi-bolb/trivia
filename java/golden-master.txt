@@ -1,0 +1,118 @@
+Chet was added
+They are player number 1
+Pat was added
+They are player number 2
+Sue was added
+They are player number 3
+Chet is the current player
+They have rolled a -1155869325
+Chet's new location is -1155869325
+The category is Rock
+Rock Question 0
+Answer was corrent!!!!
+Chet now has 1 Gold Coins.
+Pat is the current player
+They have rolled a 1761283695
+Pat's new location is 1761283683
+The category is Rock
+Rock Question 1
+Answer was corrent!!!!
+Pat now has 1 Gold Coins.
+Sue is the current player
+They have rolled a 892128508
+Sue's new location is 892128496
+The category is Rock
+Rock Question 2
+Answer was corrent!!!!
+Sue now has 1 Gold Coins.
+Chet is the current player
+They have rolled a 1429008869
+Chet's new location is 273139532
+The category is Rock
+Rock Question 3
+Answer was corrent!!!!
+Chet now has 2 Gold Coins.
+Pat is the current player
+They have rolled a -138487339
+Pat's new location is 1622796332
+The category is Rock
+Rock Question 4
+Answer was corrent!!!!
+Pat now has 2 Gold Coins.
+Sue is the current player
+They have rolled a 26273138
+Sue's new location is 918401622
+The category is Rock
+Rock Question 5
+Question was incorrectly answered
+Sue was sent to the penalty box
+Chet is the current player
+They have rolled a -155886662
+Chet's new location is 117252858
+The category is Rock
+Rock Question 6
+Answer was corrent!!!!
+Chet now has 3 Gold Coins.
+Pat is the current player
+They have rolled a -258276172
+Pat's new location is 1364520148
+The category is Rock
+Rock Question 7
+Question was incorrectly answered
+Pat was sent to the penalty box
+Sue is the current player
+They have rolled a -226796111
+Sue is getting out of the penalty box
+Sue's new location is 691605499
+The category is Rock
+Rock Question 8
+Answer was correct!!!!
+Sue now has 2 Gold Coins.
+Chet is the current player
+They have rolled a -270230103
+Chet's new location is -152977245
+The category is Rock
+Rock Question 9
+Answer was corrent!!!!
+Chet now has 4 Gold Coins.
+Pat is the current player
+They have rolled a 1705850753
+Pat is getting out of the penalty box
+Pat's new location is -1224596395
+The category is Rock
+Rock Question 10
+Answer was correct!!!!
+Pat now has 3 Gold Coins.
+Sue is the current player
+They have rolled a 1492578621
+Sue is getting out of the penalty box
+Sue's new location is -2110783176
+The category is Rock
+Rock Question 11
+Answer was correct!!!!
+Sue now has 3 Gold Coins.
+Chet is the current player
+They have rolled a 1262965348
+Chet's new location is 1109988091
+The category is Rock
+Rock Question 12
+Answer was corrent!!!!
+Chet now has 5 Gold Coins.
+Pat is the current player
+They have rolled a -2119636700
+Pat is not getting out of the penalty box
+Sue is the current player
+They have rolled a 498074875
+Sue is getting out of the penalty box
+Sue's new location is -1612708301
+The category is Rock
+Rock Question 13
+Answer was correct!!!!
+Sue now has 4 Gold Coins.
+Chet is the current player
+They have rolled a -985540886
+Chet's new location is 124447193
+The category is Rock
+Rock Question 14
+Answer was corrent!!!!
+Chet now has 6 Gold Coins.

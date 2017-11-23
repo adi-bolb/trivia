@@ -55,36 +55,51 @@ public class Game {
         print(players.get(currentPlayer) + " is the current player");
         print("They have rolled a " + roll);
 
-        if (inPenaltyBox[currentPlayer]) {
-            if (roll % 2 != 0) {
-                isGettingOutOfPenaltyBox = true;
-
-                print(players.get(currentPlayer) + " is getting out of the penalty box");
-                places[currentPlayer] = places[currentPlayer] + roll;
-                if (places[currentPlayer] > 11) places[currentPlayer] = places[currentPlayer] - 12;
-
-                print(players.get(currentPlayer)
-                        + "'s new location is "
-                        + places[currentPlayer]);
-                print("The category is " + currentCategory());
-                askQuestion();
-            } else {
-                print(players.get(currentPlayer) + " is not getting out of the penalty box");
-                isGettingOutOfPenaltyBox = false;
-            }
-
+        if (isInPenaltyBox()) {
+            playFromPenaltyBox(roll);
         } else {
-
-            places[currentPlayer] = places[currentPlayer] + roll;
-            if (places[currentPlayer] > 11) places[currentPlayer] = places[currentPlayer] - 12;
-
-            print(players.get(currentPlayer)
-                    + "'s new location is "
-                    + places[currentPlayer]);
-            print("The category is " + currentCategory());
-            askQuestion();
+            playNormalTurn(roll);
         }
 
+    }
+
+    private boolean isInPenaltyBox() {
+        return inPenaltyBox[currentPlayer];
+    }
+
+    private void playNormalTurn(final int roll) {
+        places[currentPlayer] = places[currentPlayer] + roll;
+        if (places[currentPlayer] > 11) places[currentPlayer] = places[currentPlayer] - 12;
+
+        print(players.get(currentPlayer)
+                + "'s new location is "
+                + places[currentPlayer]);
+        print("The category is " + currentCategory());
+        askQuestion();
+    }
+
+    private void playFromPenaltyBox(final int roll) {
+        if (isEvenRoll(roll)) {
+            getOutOfPenaltyBox(roll);
+        } else {
+            stayInPenaltyBox();
+        }
+    }
+
+    private void stayInPenaltyBox() {
+        print(players.get(currentPlayer) + " is not getting out of the penalty box");
+        isGettingOutOfPenaltyBox = false;
+    }
+
+    private void getOutOfPenaltyBox(final int roll) {
+        isGettingOutOfPenaltyBox = true;
+
+        print(players.get(currentPlayer) + " is getting out of the penalty box");
+        playNormalTurn(roll);
+    }
+
+    private boolean isEvenRoll(final int roll) {
+        return roll % 2 != 0;
     }
 
     private void askQuestion() {
@@ -113,42 +128,42 @@ public class Game {
     }
 
     public boolean wasCorrectlyAnswered() {
-        if (inPenaltyBox[currentPlayer]) {
+        if (isInPenaltyBox()) {
             if (isGettingOutOfPenaltyBox) {
-                print("Answer was correct!!!!");
-                purses[currentPlayer]++;
-                print(players.get(currentPlayer)
-                        + " now has "
-                        + purses[currentPlayer]
-                        + " Gold Coins.");
-
-                boolean winner = didPlayerWin();
-                currentPlayer++;
-                if (currentPlayer == players.size()) currentPlayer = 0;
-
-                return winner;
+                return completeTurn("Answer was correct!!!!");
             } else {
-                currentPlayer++;
-                if (currentPlayer == players.size()) currentPlayer = 0;
+                nextPlayer();
                 return true;
             }
 
 
         } else {
 
-            print("Answer was corrent!!!!");
-            purses[currentPlayer]++;
-            print(players.get(currentPlayer)
-                    + " now has "
-                    + purses[currentPlayer]
-                    + " Gold Coins.");
-
-            boolean winner = didPlayerWin();
-            currentPlayer++;
-            if (currentPlayer == players.size()) currentPlayer = 0;
-
-            return winner;
+            return completeTurn("Answer was corrent!!!!");
         }
+    }
+
+    private void nextPlayer() {
+        currentPlayer++;
+        wrapAroundBoard();
+    }
+
+    private boolean completeTurn(final String message) {
+        print(message);
+        purses[currentPlayer]++;
+        print(players.get(currentPlayer)
+                + " now has "
+                + purses[currentPlayer]
+                + " Gold Coins.");
+
+        boolean winner = didPlayerWin();
+        nextPlayer();
+
+        return winner;
+    }
+
+    private void wrapAroundBoard() {
+        if (currentPlayer == players.size()) currentPlayer = 0;
     }
 
     public boolean wrongAnswer() {
@@ -156,8 +171,7 @@ public class Game {
         print(players.get(currentPlayer) + " was sent to the penalty box");
         inPenaltyBox[currentPlayer] = true;
 
-        currentPlayer++;
-        if (currentPlayer == players.size()) currentPlayer = 0;
+        nextPlayer();
         return true;
     }
 

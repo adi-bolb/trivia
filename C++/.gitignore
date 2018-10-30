@@ -1,3 +1,7 @@
 Debug
 .project
 .cproject
+
+.idea
+CMakeLists.txt
+cmake-build-debug
